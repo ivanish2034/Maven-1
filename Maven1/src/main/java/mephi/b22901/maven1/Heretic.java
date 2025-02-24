@@ -4,18 +4,20 @@
  */
 package mephi.b22901.maven1;
 
+import java.util.List;
+
 /**
  *
  * @author ivis2
  */
 public class Heretic {
     private String name;
-    private String crimes;
+    private List<String> crimes;
     private String lastSeen;
     private String id;
     private String level;
 
-    public Heretic(String name, String crimes, String lastSeen, String id, String threatLevel) {
+    public Heretic(String name, List<String> crimes, String lastSeen, String id, String level) {
         this.name = name;
         this.crimes = crimes;
         this.lastSeen = lastSeen;
@@ -26,7 +28,7 @@ public class Heretic {
     public String getName() { 
         return name; 
     }
-    public String getCrimes() { 
+    public  List<String> getCrimes() { 
         return crimes; 
     }
     public String getLastSeen() { 

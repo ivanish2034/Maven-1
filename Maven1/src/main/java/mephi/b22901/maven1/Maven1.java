@@ -4,6 +4,8 @@
 
 package mephi.b22901.maven1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ivis2
@@ -11,6 +13,7 @@ package mephi.b22901.maven1;
 public class Maven1 {
 
     public static void main(String[] args) {
+        ArrayList<Heretic> Heretics = new ArrayList<>();
         System.out.println("Hello World!");
     }
 }

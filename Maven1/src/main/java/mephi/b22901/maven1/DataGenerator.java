@@ -5,19 +5,28 @@
 package mephi.b22901.maven1;
 
 import com.github.javafaker.Faker;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author ivis2
  */
 public class DataGenerator {
-    private Faker faker = new Faker();
-    private String[] levels = {"Низкий", "Средний", "Высокий", "Критический"};
+    private static Faker faker = new Faker();
+    private static String[] levels = {"Низкий", "Средний", "Высокий", "Критический"};
 
-    public Heretic generateHeretic() {
+    public static Heretic generateHeretic() {
+        List<String> crimes = new ArrayList<>();
+        int crimeCount = faker.random().nextInt(1, 4);
+        
+        for (int i = 0; i < crimeCount; i++) {
+            crimes.add(faker.lorem().sentence());
+        }
+        
         return new Heretic(
             faker.name().fullName(),
-            faker.lorem().sentence(),
+            crimes,
             faker.address().cityName(),
             faker.idNumber().valid(),
             levels[faker.random().nextInt(levels.length)]
