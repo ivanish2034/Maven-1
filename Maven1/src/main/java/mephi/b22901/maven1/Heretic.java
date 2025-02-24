@@ -13,14 +13,14 @@ public class Heretic {
     private String crimes;
     private String lastSeen;
     private String id;
-    private String threatLevel;
+    private String level;
 
     public Heretic(String name, String crimes, String lastSeen, String id, String threatLevel) {
         this.name = name;
         this.crimes = crimes;
         this.lastSeen = lastSeen;
         this.id = id;
-        this.threatLevel = threatLevel;
+        this.level = level;
     }
 
     public String getName() { 
@@ -36,11 +36,11 @@ public class Heretic {
         return id; 
     }
     public String getLevel() { 
-        return threatLevel; 
+        return level; 
     }
 
     @Override
     public String toString() {
-        return name + " (" + threatLevel + ")";
+        return name + " (" + level + ")";
     }
 }
