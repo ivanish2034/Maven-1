@@ -33,6 +33,9 @@ public class Heretic {
     public  List<String> getCrimes() { 
         return crimes; 
     }
+    public  String getCrime(int a) { 
+        return crimes.get(a); 
+    }
     public String getLastSeen() { 
         return lastSeen; 
     }
@@ -46,5 +49,9 @@ public class Heretic {
     @Override
     public String toString() {
         return name + " (" + level + ")";
+    }
+    
+    public static void addHeretic(Heretic heretic){
+        Heretics.add(heretic);
     }
 }
