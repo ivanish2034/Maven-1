@@ -4,6 +4,11 @@
  */
 package mephi.b22901.maven1;
 
+import javax.swing.table.DefaultTableModel;
+import static mephi.b22901.maven1.DataGenerator.generateHeretic;
+import static mephi.b22901.maven1.Heretic.Heretics;
+import static mephi.b22901.maven1.Heretic.addHeretic;
+
 /**
  *
  * @author test2023
@@ -188,10 +193,7 @@ public class ViewHeretic extends javax.swing.JFrame {
 
         HereticTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "HERETICS"
@@ -262,9 +264,9 @@ public class ViewHeretic extends javax.swing.JFrame {
 
     private void addHereticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addHereticActionPerformed
         Heretic newHeretic = generateHeretic();
-        Heretics.add(newHeretic);
-        HereticTable.add(newHeretic.getName());
-        
+        addHeretic(newHeretic);
+        DefaultTableModel model = (DefaultTableModel) HereticTable.getModel();
+        model.addRow(new Object[]{newHeretic.getName()});
     }//GEN-LAST:event_addHereticActionPerformed
 
     private void checkHereticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkHereticActionPerformed
@@ -272,10 +274,16 @@ public class ViewHeretic extends javax.swing.JFrame {
         int chosenRow = HereticTable.getSelectedRow();
         Heretic chosenHeretic = Heretics.get(chosenRow);
         nameArea.setText(chosenHeretic.getName());
-        crimesArea.setText(chosenHeretic.getCrimes());
-        lastSeenArea.setText(chosenHeretic.getLastSeen);
-        idArea.setText(chosenHeretic.getId);
-        threatArea.setText(chosenHeretic.getLevel);
+        int a = (chosenHeretic.getCrimes()).size();
+        String crimes = new String();
+        for (int i = 0; i < a; a++){
+            crimes += chosenHeretic.getCrime(i);
+            crimes += ", ";
+        }
+        crimesArea.setText(crimes);
+        lastSeenArea.setText(chosenHeretic.getLastSeen());
+        idArea.setText(chosenHeretic.getId());
+        threatArea.setText(chosenHeretic.getLevel());
     }//GEN-LAST:event_checkHereticActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed

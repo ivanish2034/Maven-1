@@ -4,6 +4,7 @@
  */
 package mephi.b22901.maven1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,7 @@ import java.util.List;
  * @author ivis2
  */
 public class Heretic {
+    static ArrayList<Heretic> Heretics = new ArrayList<>();
     private String name;
     private List<String> crimes;
     private String lastSeen;
